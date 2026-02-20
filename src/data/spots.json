@@ -1,0 +1,289 @@
+[
+  {
+    "id": 1,
+    "name": "天津古文化街",
+    "location": "117.192192,39.143891",
+    "address": "古文化街内",
+    "type": "风景名胜",
+    "isHeritage": true,
+    "description": "津门十景之一，天津老字号店民间手工艺品集中的街道。"
+  },
+  {
+    "id": 2,
+    "name": "勅建天后宫",
+    "location": "117.192677,39.143278",
+    "address": "古文化街80号",
+    "type": "风景名胜",
+    "isHeritage": true,
+    "description": "中国三大妈祖庙之一，天津民俗文化的发祥地。"
+  },
+  {
+    "id": 3,
+    "name": "津门故里",
+    "location": "117.192998,39.142638",
+    "address": "天津古文化街",
+    "type": "风景名胜",
+    "isHeritage": true
+  },
+  {
+    "id": 4,
+    "name": "玉皇阁",
+    "location": "117.192823,39.145375",
+    "address": "古文化街文化小城7-503对面",
+    "type": "风景名胜",
+    "isHeritage": true
+  },
+  {
+    "id": 5,
+    "name": "通庆里",
+    "location": "117.192257,39.145083",
+    "address": "鼓楼街道北马路80号",
+    "type": "风景名胜",
+    "isHeritage": true,
+    "description": "具有中西合璧建筑风格的里弄。"
+  },
+  {
+    "id": 6,
+    "name": "戏楼",
+    "location": "117.193638,39.143448",
+    "address": "古文化街",
+    "type": "风景名胜",
+    "isHeritage": true
+  },
+  {
+    "id": 7,
+    "name": "天津泥人张(古文化街店)",
+    "location": "117.193053,39.141990",
+    "address": "古文化街美博城1-48号",
+    "type": "购物",
+    "isHeritage": true,
+    "description": "国家级非物质文化遗产，天津彩塑代表。"
+  },
+  {
+    "id": 8,
+    "name": "杨柳青年画(古文化街店)",
+    "location": "117.191353,39.145508",
+    "address": "美博城1-49",
+    "type": "购物",
+    "isHeritage": true,
+    "description": "国家级非物质文化遗产，中国四大木版年画之一。"
+  },
+  {
+    "id": 9,
+    "name": "风筝魏(需确认位置)",
+    "location": "117.192300,39.143500",
+    "address": "古文化街",
+    "type": "购物",
+    "isHeritage": true,
+    "description": "国家级非物质文化遗产，著名风筝制作世家。"
+  },
+  {
+    "id": 10,
+    "name": "联升斋刺绣艺术博物馆",
+    "location": "117.192660,39.142215",
+    "address": "古文化街116号",
+    "type": "文化艺术",
+    "isHeritage": true,
+    "description": "津门老字号，以苏绣工艺著称。"
+  },
+  {
+    "id": 11,
+    "name": "老美华(天津市民俗文化博览园广场店)",
+    "location": "117.192666,39.141708",
+    "address": "古文化街164号",
+    "type": "购物",
+    "isHeritage": true,
+    "description": "中华老字号，专营传统布鞋和中式服装。"
+  },
+  {
+    "id": 12,
+    "name": "达仁堂健康生活馆",
+    "location": "117.193446,39.143499",
+    "address": "古文化街23号2层",
+    "type": "购物",
+    "isHeritage": true,
+    "description": "中华老字号，著名中药品牌。"
+  },
+  {
+    "id": 13,
+    "name": "正兴德茶庄(东马路店)",
+    "location": "117.190772,39.144766",
+    "address": "东马路15-1号",
+    "type": "购物",
+    "isHeritage": true,
+    "description": "中华老字号，著名的清真茶庄。"
+  },
+  {
+    "id": 14,
+    "name": "狗不理包子(古文化街店)",
+    "location": "117.192100,39.143200",
+    "address": "古文化街",
+    "type": "餐饮",
+    "isHeritage": true,
+    "description": "中华老字号，天津三绝之首。"
+  },
+  {
+    "id": 15,
+    "name": "耳朵眼炸糕(天津古文化街店)",
+    "location": "117.191288,39.145722",
+    "address": "古文化街北门",
+    "type": "餐饮",
+    "isHeritage": true,
+    "description": "中华老字号，天津三绝之一。"
+  },
+  {
+    "id": 16,
+    "name": "桂发祥十八街麻花(总店)",
+    "location": "117.192805,39.141572",
+    "address": "古文化街旅游区南门旁",
+    "type": "餐饮",
+    "isHeritage": true,
+    "description": "中华老字号，天津三绝之一。"
+  },
+  {
+    "id": 17,
+    "name": "崩豆张(古文化街店)",
+    "location": "117.192863,39.142579",
+    "address": "古文化街118号",
+    "type": "餐饮",
+    "isHeritage": true,
+    "description": "中华老字号，传统小吃。"
+  },
+  {
+    "id": 18,
+    "name": "祥德斋(古文化街店)",
+    "location": "117.193081,39.143078",
+    "address": "古文化街宫南35号",
+    "type": "餐饮",
+    "isHeritage": true,
+    "description": "中华老字号，传统糕点。"
+  },
+  {
+    "id": 19,
+    "name": "桂顺斋",
+    "location": "117.192995,39.141571",
+    "address": "古文化街旅游区南门旁",
+    "type": "餐饮",
+    "isHeritage": true,
+    "description": "中华老字号，清真糕点。"
+  },
+  {
+    "id": 20,
+    "name": "起士林(古文化街店)",
+    "location": "117.192549,39.144073",
+    "address": "古文化街37号",
+    "type": "餐饮",
+    "isHeritage": true,
+    "description": "中华老字号，中国第一家西餐厅。"
+  },
+  {
+    "id": 21,
+    "name": "果仁张(来电点位)",
+    "location": "117.191395,39.145305",
+    "address": "古文化街12号",
+    "type": "餐饮",
+    "isHeritage": true,
+    "description": "中华老字号，传统挂霜系列小吃。"
+  },
+  {
+    "id": 22,
+    "name": "名流茶馆(古文化街店)",
+    "location": "117.193718,39.143131",
+    "address": "古文化街37号",
+    "type": "文化艺术",
+    "isHeritage": true,
+    "description": "著名相声茶馆，体验天津曲艺文化。"
+  },
+  {
+    "id": 23,
+    "name": "天津民俗博物馆",
+    "location": "117.192677,39.143278",
+    "address": "古文化街80号",
+    "type": "文化艺术",
+    "isHeritage": true
+  },
+  {
+    "id": 24,
+    "name": "天津华夏鞋文化博物馆",
+    "location": "117.192871,39.142066",
+    "address": "古文化街海河楼166号",
+    "type": "文化艺术",
+    "isHeritage": true
+  },
+  {
+    "id": 25,
+    "name": "皮影张",
+    "location": "117.192889,39.142103",
+    "address": "民俗文化博览园广场东2门旁",
+    "type": "购物",
+    "isHeritage": true
+  },
+  {
+    "id": 26,
+    "name": "王星记扇庄",
+    "location": "117.192601,39.144039",
+    "address": "古文化街F126号",
+    "type": "购物",
+    "isHeritage": true,
+    "description": "中华老字号，传统扇艺。"
+  },
+  {
+    "id": 27,
+    "name": "张小泉(天津古文化街旗舰店)",
+    "location": "117.192850,39.141979",
+    "address": "古文化街宫南156号",
+    "type": "购物",
+    "isHeritage": true,
+    "description": "中华老字号，刀剪制作技艺。"
+  },
+  {
+    "id": 28,
+    "name": "谢馥春",
+    "location": "117.192364,39.144160",
+    "address": "古文化街68号",
+    "type": "购物",
+    "isHeritage": true,
+    "description": "中华老字号，传统化妆品。"
+  },
+  {
+    "id": 29,
+    "name": "严复雕像",
+    "location": "117.191983,39.144789",
+    "address": "通北路与东马路交口附近",
+    "type": "风景名胜",
+    "isHeritage": true
+  },
+  {
+    "id": 30,
+    "name": "泥人张美术馆",
+    "location": "117.192060,39.144927",
+    "address": "古文化街通庆里4号院",
+    "type": "文化艺术",
+    "isHeritage": true
+  },
+  {
+    "id": 31,
+    "name": "祥禾饽饽铺",
+    "location": "117.193010,39.143607",
+    "address": "古文化街80号",
+    "type": "餐饮",
+    "isHeritage": true,
+    "description": "非物质文化遗产，宫廷糕点技艺。"
+  },
+  {
+    "id": 32,
+    "name": "肯德基(古文化街店)",
+    "location": "117.193223,39.143597",
+    "address": "古文化街19号",
+    "type": "餐饮",
+    "isHeritage": false
+  },
+  {
+    "id": 33,
+    "name": "天津古文化街游客服务中心",
+    "location": "117.192581,39.145684",
+    "address": "通北路",
+    "type": "服务",
+    "isHeritage": false
+  }
+]
