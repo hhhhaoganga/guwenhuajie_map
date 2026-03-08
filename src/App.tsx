@@ -244,40 +244,53 @@ export default function App() {
                <div className="absolute top-0 left-0 w-1 h-full bg-[#8b1a1a]/20"></div>
                <div className="whitespace-pre-wrap">
                  {selectedSpot.description ? (
-                   <>
-                     {selectedSpot.description.split('\n\n')[0]}
+                   (() => {
+                     const baiduMatch = selectedSpot.description.match(/百度百科: (https?:\/\/[^\s]+)/);
+                     const biliMatch = selectedSpot.description.match(/Bilibili: (https?:\/\/[^\s]+)/);
                      
-                     <div className="mt-4 flex flex-wrap gap-2">
-                       {selectedSpot.description.match(/百度百科: (https?:\/\/[^\s]+)/) && (
-                         <a 
-                           href={selectedSpot.description.match(/百度百科: (https?:\/\/[^\s]+)/)![1]} 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#f0f0f0] text-[#333] rounded-full text-xs font-bold hover:bg-[#e0e0e0] transition-colors border border-[#ccc]"
-                         >
-                           <span className="w-4 h-4 flex items-center justify-center bg-[#2932e1] text-white rounded text-[10px]">百</span>
-                           百度百科
-                         </a>
-                       )}
-                       
-                       {selectedSpot.description.match(/Bilibili: (https?:\/\/[^\s]+)/) && (
-                         <a 
-                           href={selectedSpot.description.match(/Bilibili: (https?:\/\/[^\s]+)/)![1]} 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#f6f6f6] text-[#fb7299] rounded-full text-xs font-bold hover:bg-[#f0f0f0] transition-colors border border-[#fb7299]/30"
-                         >
-                           <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a.9.9 0 0 1-.272-.645c0-.247.09-.46.27-.639a.878.878 0 0 1 .64-.266c.246 0 .46.09.64.266l1.96 1.871h7.627l1.96-1.871c.18-.178.393-.266.64-.266.246 0 .46.09.64.266a.878.878 0 0 1 .27.64c0 .248-.09.463-.27.645l-1.174 1.12Zm-2.653 10.662c0-.578-.208-1.07-.626-1.479a2.006 2.006 0 0 0-1.48-.614 2.006 2.006 0 0 0-1.48.614 2.033 2.033 0 0 0-.626 1.48c0 .578.208 1.07.626 1.479a2.006 2.006 0 0 0 1.48.614c.578 0 1.07-.205 1.48-.614a2.033 2.033 0 0 0 .626-1.48Zm-6.4 0c0-.578-.208-1.07-.626-1.479a2.006 2.006 0 0 0-1.48-.614 2.006 2.006 0 0 0-1.48.614 2.033 2.033 0 0 0-.626 1.48c0 .578.208 1.07.626 1.479a2.006 2.006 0 0 0 1.48.614c.578 0 1.07-.205 1.48-.614a2.033 2.033 0 0 0 .626-1.48Z"/></svg>
-                           相关视频
-                         </a>
-                       )}
-                     </div>
-                   </>
+                     return (
+                       <>
+                         {selectedSpot.description.split('\n\n')[0]}
+                         
+                         <div className="mt-4 flex flex-wrap gap-2">
+                           {baiduMatch && baiduMatch[1] && (
+                             <a 
+                               href={baiduMatch[1]} 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#f0f0f0] text-[#333] rounded-full text-xs font-bold hover:bg-[#e0e0e0] transition-colors border border-[#ccc]"
+                             >
+                               <span className="w-4 h-4 flex items-center justify-center bg-[#2932e1] text-white rounded text-[10px]">百</span>
+                               百度百科
+                             </a>
+                           )}
+                           
+                           {biliMatch && biliMatch[1] && (
+                             <a 
+                               href={biliMatch[1]} 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#f6f6f6] text-[#fb7299] rounded-full text-xs font-bold hover:bg-[#f0f0f0] transition-colors border border-[#fb7299]/30"
+                             >
+                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a.9.9 0 0 1-.272-.645c0-.247.09-.46.27-.639a.878.878 0 0 1 .64-.266c.246 0 .46.09.64.266l1.96 1.871h7.627l1.96-1.871c.18-.178.393-.266.64-.266.246 0 .46.09.64.266a.878.878 0 0 1 .27.64c0 .248-.09.463-.27.645l-1.174 1.12Zm-2.653 10.662c0-.578-.208-1.07-.626-1.479a2.006 2.006 0 0 0-1.48-.614 2.006 2.006 0 0 0-1.48.614 2.033 2.033 0 0 0-.626 1.48c0 .578.208 1.07.626 1.479a2.006 2.006 0 0 0 1.48.614c.578 0 1.07-.205 1.48-.614a2.033 2.033 0 0 0 .626-1.48Zm-6.4 0c0-.578-.208-1.07-.626-1.479a2.006 2.006 0 0 0-1.48-.614 2.006 2.006 0 0 0-1.48.614 2.033 2.033 0 0 0-.626 1.48c0 .578.208 1.07.626 1.479a2.006 2.006 0 0 0 1.48.614c.578 0 1.07-.205 1.48-.614a2.033 2.033 0 0 0 .626-1.48Z"/></svg>
+                               相关视频
+                             </a>
+                           )}
+                         </div>
+                       </>
+                     );
+                   })()
                  ) : '暂无详细介绍...'}
                </div>
             </div>
 
-            <button className="w-full mt-4 bg-[#8b1a1a] text-[#fdfbf7] py-3 rounded-xl font-bold shadow-md flex items-center justify-center gap-2 active:scale-95 transition-transform">
+            <button 
+              onClick={() => {
+                const [lng, lat] = selectedSpot.location.split(',');
+                window.open(`https://uri.amap.com/marker?position=${lng},${lat}&name=${encodeURIComponent(selectedSpot.name)}`, '_blank');
+              }}
+              className="w-full mt-4 bg-[#8b1a1a] text-[#fdfbf7] py-3 rounded-xl font-bold shadow-md flex items-center justify-center gap-2 active:scale-95 transition-transform"
+            >
               <Navigation className="w-4 h-4" />
               导航前往
             </button>
