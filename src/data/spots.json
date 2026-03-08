@@ -6,7 +6,7 @@
     "address": "古文化街内",
     "type": "风景名胜",
     "isHeritage": true,
-    "description": "津门十景之一，天津老字号店民间手工艺品集中的街道。"
+    "description": "津门十景之一，也是天津老字号店民间手工艺品集中的街道。全长687米，建筑风格为仿明清小式建筑。这里汇集了泥人张、杨柳青年画、风筝魏等众多国家级非物质文化遗产。漫步其中，仿佛穿越回百年前的津门，是体验天津民俗风情、品尝地道美食的绝佳去处。\n\n百度百科: https://baike.baidu.com/item/天津古文化街\nBilibili: https://search.bilibili.com/all?keyword=天津古文化街"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "address": "古文化街80号",
     "type": "风景名胜",
     "isHeritage": true,
-    "description": "中国三大妈祖庙之一，天津民俗文化的发祥地。"
+    "description": "俗称娘娘宫，始建于元泰定三年（1326年），是天津市区现存最古老的建筑群，也是中国三大妈祖庙之一。天后宫不仅是著名的道教宫观，更是天津民俗文化的发祥地和海洋文化的重要载体。每逢传统节日，这里都会举行盛大的皇会表演，热闹非凡。\n\n百度百科: https://baike.baidu.com/item/天津天后宫\nBilibili: https://search.bilibili.com/all?keyword=天津天后宫"
   },
   {
     "id": 3,
@@ -23,7 +23,8 @@
     "location": "117.192998,39.142638",
     "address": "天津古文化街",
     "type": "风景名胜",
-    "isHeritage": true
+    "isHeritage": true,
+    "description": "“津门故里”牌坊是古文化街的标志性建筑，寓意着这里是天津的发祥地。古文化街内保留了大量的天津传统民俗和商业文化，是感受“津味”最浓郁的地方。这里不仅有古色古香的建筑，还有各种传统手工艺品和地道小吃，是游客了解天津历史文化的必游之地。\n\n百度百科: https://baike.baidu.com/item/津门故里\nBilibili: https://search.bilibili.com/all?keyword=津门故里"
   },
   {
     "id": 4,
@@ -31,7 +32,8 @@
     "location": "117.192823,39.145375",
     "address": "古文化街文化小城7-503对面",
     "type": "风景名胜",
-    "isHeritage": true
+    "isHeritage": true,
+    "description": "原名玉皇庙，始建于明朝洪武年间，是天津市区现存最大的道教建筑之一。玉皇阁建筑气势宏伟，结构精巧，保留了明代建筑的风格特点。虽然历经沧桑，但依然屹立不倒，见证了天津卫的兴衰变迁。登上玉皇阁，可以俯瞰周边的古街风貌。\n\n百度百科: https://baike.baidu.com/item/玉皇阁/2769\nBilibili: https://search.bilibili.com/all?keyword=天津玉皇阁"
   },
   {
     "id": 5,
@@ -40,7 +42,7 @@
     "address": "鼓楼街道北马路80号",
     "type": "风景名胜",
     "isHeritage": true,
-    "description": "具有中西合璧建筑风格的里弄。"
+    "description": "始建于1913年，是天津古文化街内保存最完整的里弄建筑群。它融合了中式四合院和西式建筑的特点，形成了独特的“中西合璧”风格。通庆里曾是银号、商铺云集之地，见证了天津近代商业的繁荣。如今，这里依然保留着古朴的风貌，是摄影爱好者的打卡胜地。\n\n百度百科: https://baike.baidu.com/item/通庆里\nBilibili: https://search.bilibili.com/all?keyword=天津通庆里"
   },
   {
     "id": 6,
@@ -48,7 +50,8 @@
     "location": "117.193638,39.143448",
     "address": "古文化街",
     "type": "风景名胜",
-    "isHeritage": true
+    "isHeritage": true,
+    "description": "天津古文化街戏楼是古街上的重要文化景观，也是天津戏曲文化的重要载体。戏楼建筑古朴典雅，舞台装饰华丽，经常举办各种京剧、评剧、相声等传统艺术表演。在这里，游客可以近距离欣赏到原汁原味的中国传统戏曲，感受国粹艺术的独特魅力。\n\n百度百科: https://baike.baidu.com/item/天津古文化街戏楼\nBilibili: https://search.bilibili.com/all?keyword=天津古文化街戏楼"
   },
   {
     "id": 7,
@@ -57,7 +60,7 @@
     "address": "古文化街美博城1-48号",
     "type": "购物",
     "isHeritage": true,
-    "description": "国家级非物质文化遗产，天津彩塑代表。"
+    "description": "中国传统民间艺术一绝，创始于清代道光年间。泥人张彩塑以观察入微、形象生动、色彩淡雅而著称。其作品取材广泛，既有神话故事，也有市井百态，人物神态栩栩如生。在古文化街的专卖店里，您可以欣赏到大师们的精湛技艺，选购心仪的彩塑作品。\n\n百度百科: https://baike.baidu.com/item/泥人张\nBilibili: https://search.bilibili.com/all?keyword=天津泥人张"
   },
   {
     "id": 8,
@@ -66,16 +69,16 @@
     "address": "美博城1-49",
     "type": "购物",
     "isHeritage": true,
-    "description": "国家级非物质文化遗产，中国四大木版年画之一。"
+    "description": "中国四大木版年画之一，产生于明代崇祯年间。杨柳青年画继承了宋、元绘画的传统，吸收了明代木刻版画的形式，采用木版套印和手工彩绘相结合的方法。画面色彩鲜艳，题材丰富，寓意吉祥，是天津民间艺术的瑰宝，也是春节期间必不可少的装饰品。\n\n百度百科: https://baike.baidu.com/item/杨柳青年画\nBilibili: https://search.bilibili.com/all?keyword=杨柳青年画"
   },
   {
     "id": 9,
-    "name": "风筝魏(需确认位置)",
+    "name": "风筝魏",
     "location": "117.192300,39.143500",
     "address": "古文化街",
     "type": "购物",
     "isHeritage": true,
-    "description": "国家级非物质文化遗产，著名风筝制作世家。"
+    "description": "天津著名风筝制作世家，创始于1892年。风筝魏的风筝做工精细，造型美观，飞行平稳。其制作技艺已被列入国家级非物质文化遗产名录。风筝魏的风筝不仅是娱乐玩具，更是精美的工艺品，具有很高的艺术欣赏价值和收藏价值。\n\n百度百科: https://baike.baidu.com/item/风筝魏\nBilibili: https://search.bilibili.com/all?keyword=风筝魏"
   },
   {
     "id": 10,
@@ -84,7 +87,7 @@
     "address": "古文化街116号",
     "type": "文化艺术",
     "isHeritage": true,
-    "description": "津门老字号，以苏绣工艺著称。"
+    "description": "始建于1893年，是天津著名的刺绣老字号。联升斋的苏绣技艺精湛，图案秀丽，色彩和谐，针法活泼。这里的刺绣作品既有传统的龙凤呈祥、花鸟鱼虫，也有现代的风景人物，每一件都凝聚了绣工的心血和智慧，是馈赠亲友的佳品。\n\n百度百科: https://baike.baidu.com/item/联升斋\nBilibili: https://search.bilibili.com/all?keyword=联升斋刺绣"
   },
   {
     "id": 11,
@@ -93,7 +96,7 @@
     "address": "古文化街164号",
     "type": "购物",
     "isHeritage": true,
-    "description": "中华老字号，专营传统布鞋和中式服装。"
+    "description": "创立于1911年，是天津著名的鞋帽老字号。老美华以经营传统布鞋、绣花鞋而闻名，其产品做工精细，穿着舒适，透气性好。近年来，老美华还开发了中式服装、旗袍等产品，深受中老年人和年轻人的喜爱，是传承中华服饰文化的重要品牌。\n\n百度百科: https://baike.baidu.com/item/老美华\nBilibili: https://search.bilibili.com/all?keyword=老美华"
   },
   {
     "id": 12,
@@ -102,7 +105,7 @@
     "address": "古文化街23号2层",
     "type": "购物",
     "isHeritage": true,
-    "description": "中华老字号，著名中药品牌。"
+    "description": "乐家老铺天津达仁堂，始建于1914年，是中华老字号企业。达仁堂恪守“炮制虽繁必不敢省人工，品味虽贵必不敢减物力”的祖训，生产的药品疗效显著，享誉海内外。在古文化街的健康生活馆，您可以了解中医药文化，购买到正宗的达仁堂国药。\n\n百度百科: https://baike.baidu.com/item/达仁堂\nBilibili: https://search.bilibili.com/all?keyword=达仁堂"
   },
   {
     "id": 13,
@@ -111,7 +114,7 @@
     "address": "东马路15-1号",
     "type": "购物",
     "isHeritage": true,
-    "description": "中华老字号，著名的清真茶庄。"
+    "description": "始建于1738年，是天津著名的清真茶庄。正兴德茶叶以“汤清、色重、味浓”而著称，其花茶制作技艺独特，香气扑鼻，回味甘甜。这里不仅销售各种优质茶叶，还保留了传统的纸包茶叶技艺，是体验天津茶文化的好去处。\n\n百度百科: https://baike.baidu.com/item/正兴德茶庄\nBilibili: https://search.bilibili.com/all?keyword=正兴德茶庄"
   },
   {
     "id": 14,
@@ -120,7 +123,7 @@
     "address": "古文化街",
     "type": "餐饮",
     "isHeritage": true,
-    "description": "中华老字号，天津三绝之首。"
+    "description": "始创于1858年，是天津三绝之首，中华老字号。狗不理包子以选料考究、制作精细、口味醇香而闻名。其包子褶花匀称，每个包子不少于15个褶，形似菊花。虽然现在分店众多，但古文化街店依然保留了浓郁的传统风味，是游客必尝的美食。\n\n百度百科: https://baike.baidu.com/item/狗不理包子\nBilibili: https://search.bilibili.com/all?keyword=狗不理包子"
   },
   {
     "id": 15,
@@ -129,7 +132,7 @@
     "address": "古文化街北门",
     "type": "餐饮",
     "isHeritage": true,
-    "description": "中华老字号，天津三绝之一。"
+    "description": "始创于1900年，是天津三绝之一。耳朵眼炸糕选用优质糯米、红小豆、白糖等原料，经传统工艺精制而成。炸好的糕呈金黄色，外皮酥脆，内馅香甜软糯，别具风味。刚出锅的炸糕口感最佳，是天津人从小吃到大的经典小吃。\n\n百度百科: https://baike.baidu.com/item/耳朵眼炸糕\nBilibili: https://search.bilibili.com/all?keyword=耳朵眼炸糕"
   },
   {
     "id": 16,
@@ -138,7 +141,7 @@
     "address": "古文化街旅游区南门旁",
     "type": "餐饮",
     "isHeritage": true,
-    "description": "中华老字号，天津三绝之一。"
+    "description": "始创于1927年，是天津三绝之一。桂发祥麻花在白条和麻条中间夹一条含有各种果仁、桂花、闽姜、青红丝的酥馅，拧成绳状炸制而成。其特点是香、酥、脆、甜，久放不绵。作为天津最著名的特产之一，是游客必买的伴手礼。\n\n百度百科: https://baike.baidu.com/item/桂发祥十八街麻花\nBilibili: https://search.bilibili.com/all?keyword=桂发祥十八街麻花"
   },
   {
     "id": 17,
@@ -147,7 +150,7 @@
     "address": "古文化街118号",
     "type": "餐饮",
     "isHeritage": true,
-    "description": "中华老字号，传统小吃。"
+    "description": "天津著名的传统小吃老字号，源于清嘉庆年间。崩豆张制作的崩豆外形黑黄油亮，口感脆而不硬，五香味浓，回味无穷。除了崩豆，这里还有各种怪味豆、果仁等休闲食品，是佐茶下酒的绝佳小菜，也是天津人喜爱的零食。\n\n百度百科: https://baike.baidu.com/item/崩豆张\nBilibili: https://search.bilibili.com/all?keyword=崩豆张"
   },
   {
     "id": 18,
@@ -156,7 +159,7 @@
     "address": "古文化街宫南35号",
     "type": "餐饮",
     "isHeritage": true,
-    "description": "中华老字号，传统糕点。"
+    "description": "始建于1846年，是天津著名的糕点老字号。祥德斋的糕点品种繁多，制作精细，口味纯正。其招牌产品包括萨其马、桃酥、京八件等，既有宫廷御膳的风味，又有民间小吃的特色。这里的糕点包装古朴，充满怀旧气息，是馈赠亲友的好选择。\n\n百度百科: https://baike.baidu.com/item/祥德斋\nBilibili: https://search.bilibili.com/all?keyword=祥德斋"
   },
   {
     "id": 19,
@@ -165,7 +168,7 @@
     "address": "古文化街旅游区南门旁",
     "type": "餐饮",
     "isHeritage": true,
-    "description": "中华老字号，清真糕点。"
+    "description": "始建于1924年，是天津著名的清真糕点店。桂顺斋的糕点以用料实在、香油味浓、口感酥软而著称。其生产的萨其马、绿豆糕、拿破仑等产品深受天津市民喜爱。作为清真品牌，桂顺斋严格遵守清真食品制作规范，让消费者吃得放心。\n\n百度百科: https://baike.baidu.com/item/桂顺斋\nBilibili: https://search.bilibili.com/all?keyword=桂顺斋"
   },
   {
     "id": 20,
@@ -174,7 +177,7 @@
     "address": "古文化街37号",
     "type": "餐饮",
     "isHeritage": true,
-    "description": "中华老字号，中国第一家西餐厅。"
+    "description": "始建于1901年，是中国最早的西餐馆之一。起士林以经营德式、俄式、英式、法式西餐和西点而闻名。其生产的巧克力、糖果、面包等食品也是天津人的童年回忆。在古文化街店，您可以品尝到正宗的起士林西点，感受百年前的西式风情。\n\n百度百科: https://baike.baidu.com/item/起士林\nBilibili: https://search.bilibili.com/all?keyword=起士林"
   },
   {
     "id": 21,
@@ -183,7 +186,7 @@
     "address": "古文化街12号",
     "type": "餐饮",
     "isHeritage": true,
-    "description": "中华老字号，传统挂霜系列小吃。"
+    "description": "始创于1830年，是天津著名的老字号。果仁张的制作技艺是宫廷御膳房传出来的，其产品以挂霜系列为主，还有琥珀、净香、奶香等多种口味。果仁张的果仁色泽鲜艳，形态各异，口感酥脆，香甜可口，被誉为“食苑一绝”。\n\n百度百科: https://baike.baidu.com/item/果仁张\nBilibili: https://search.bilibili.com/all?keyword=果仁张"
   },
   {
     "id": 22,
@@ -192,7 +195,7 @@
     "address": "古文化街37号",
     "type": "文化艺术",
     "isHeritage": true,
-    "description": "著名相声茶馆，体验天津曲艺文化。"
+    "description": "成立于1991年，是改革开放后天津第一家民办相声茶馆。名流茶馆环境古朴，具有浓郁的津派茶馆风格。这里每天都有精彩的相声演出，汇集了众多相声名家和新秀。喝着盖碗茶，嗑着瓜子，听着相声，是体验天津卫“乐呵”生活的最佳方式。\n\n百度百科: https://baike.baidu.com/item/名流茶馆\nBilibili: https://search.bilibili.com/all?keyword=名流茶馆"
   },
   {
     "id": 23,
@@ -200,7 +203,8 @@
     "location": "117.192677,39.143278",
     "address": "古文化街80号",
     "type": "文化艺术",
-    "isHeritage": true
+    "isHeritage": true,
+    "description": "位于天后宫内，是介绍天津城市发展历史和民俗文化的专题博物馆。馆内收藏了大量反映天津漕运、婚育、商业、民间艺术等方面的文物和资料。通过参观，游客可以深入了解天津这座城市的历史变迁和独特的民俗风情。\n\n百度百科: https://baike.baidu.com/item/天津民俗博物馆\nBilibili: https://search.bilibili.com/all?keyword=天津民俗博物馆"
   },
   {
     "id": 24,
@@ -208,7 +212,8 @@
     "location": "117.192871,39.142066",
     "address": "古文化街海河楼166号",
     "type": "文化艺术",
-    "isHeritage": true
+    "isHeritage": true,
+    "description": "中国首家以鞋文化为主题的博物馆。馆内展示了从远古时期到现代的各种鞋履，包括三寸金莲、花盆底鞋、官靴等珍贵实物。这里不仅展示了鞋履的演变历史，还反映了不同历史时期的社会风俗和审美观念，非常值得一看。\n\n百度百科: https://baike.baidu.com/item/华夏鞋文化博物馆\nBilibili: https://search.bilibili.com/all?keyword=华夏鞋文化博物馆"
   },
   {
     "id": 25,
@@ -216,7 +221,8 @@
     "location": "117.192889,39.142103",
     "address": "民俗文化博览园广场东2门旁",
     "type": "购物",
-    "isHeritage": true
+    "isHeritage": true,
+    "description": "天津皮影制作技艺的代表。皮影戏是中国古老的传统民间艺术，皮影张的皮影雕刻精细，色彩艳丽，造型生动。在这里，您不仅可以欣赏到精美的皮影作品，还有机会观看皮影戏表演，了解这项古老艺术的魅力，感受光影交错间的传奇故事。\n\n百度百科: https://baike.baidu.com/item/皮影戏\nBilibili: https://search.bilibili.com/all?keyword=天津皮影张"
   },
   {
     "id": 26,
@@ -225,7 +231,7 @@
     "address": "古文化街F126号",
     "type": "购物",
     "isHeritage": true,
-    "description": "中华老字号，传统扇艺。"
+    "description": "始建于1875年，是著名的中华老字号。王星记扇子以选料考究、做工精细、品种繁多而著称。其生产的黑纸扇、檀香扇、挂扇等产品，既有实用价值，又有很高的艺术欣赏价值。一把精美的折扇，不仅是纳凉的工具，更是文人雅士的怀袖雅物。\n\n百度百科: https://baike.baidu.com/item/王星记扇庄\nBilibili: https://search.bilibili.com/all?keyword=王星记扇庄"
   },
   {
     "id": 27,
@@ -234,7 +240,7 @@
     "address": "古文化街宫南156号",
     "type": "购物",
     "isHeritage": true,
-    "description": "中华老字号，刀剪制作技艺。"
+    "description": "始创于1628年，是中华老字号，以生产剪刀等刀具而闻名。张小泉剪刀以“镶钢锻制”技艺著称，锋利耐用，款式精美。在古文化街的专卖店里，您可以买到各种规格的剪刀、刀具，无论是家用还是收藏，都是不错的选择。\n\n百度百科: https://baike.baidu.com/item/张小泉\nBilibili: https://search.bilibili.com/all?keyword=张小泉"
   },
   {
     "id": 28,
@@ -243,7 +249,7 @@
     "address": "古文化街68号",
     "type": "购物",
     "isHeritage": true,
-    "description": "中华老字号，传统化妆品。"
+    "description": "中国第一家化妆品企业，始创于1830年。谢馥春以“香、粉、油”三绝闻名天下，其产品采用天然原料，经传统工艺制作而成。鸭蛋粉、冰麝油、香包等经典产品，散发着淡雅的幽香，是东方女性传统美容养颜的佳品。\n\n百度百科: https://baike.baidu.com/item/谢馥春\nBilibili: https://search.bilibili.com/all?keyword=谢馥春"
   },
   {
     "id": 29,
@@ -251,7 +257,8 @@
     "location": "117.191983,39.144789",
     "address": "通北路与东马路交口附近",
     "type": "风景名胜",
-    "isHeritage": true
+    "isHeritage": true,
+    "description": "严复是中国近代著名的启蒙思想家、翻译家、教育家。他翻译的《天演论》等著作，将西方进化论学说引入中国，对中国近代思想界产生了巨大影响。这座雕像矗立在古文化街，是为了纪念这位伟大的先驱，激励后人学习他追求真理、爱国救亡的精神。\n\n百度百科: https://baike.baidu.com/item/严复\nBilibili: https://search.bilibili.com/all?keyword=严复"
   },
   {
     "id": 30,
@@ -259,7 +266,8 @@
     "location": "117.192060,39.144927",
     "address": "古文化街通庆里4号院",
     "type": "文化艺术",
-    "isHeritage": true
+    "isHeritage": true,
+    "description": "专门展示泥人张彩塑艺术的场馆。这里收藏了泥人张世家历代传人的精品力作，系统展示了泥人张彩塑的发展历程和艺术成就。馆内环境优雅，艺术氛围浓厚，是欣赏中国传统雕塑艺术、领略泥人张独特魅力的艺术殿堂。\n\n百度百科: https://baike.baidu.com/item/泥人张美术馆\nBilibili: https://search.bilibili.com/all?keyword=泥人张美术馆"
   },
   {
     "id": 31,
@@ -268,7 +276,7 @@
     "address": "古文化街80号",
     "type": "餐饮",
     "isHeritage": true,
-    "description": "非物质文化遗产，宫廷糕点技艺。"
+    "description": "传承宫廷糕点制作技艺的老字号。祥禾饽饽铺的糕点用料讲究，工艺复杂，口感细腻。其制作的枣泥卷、贵妃饼、萨其马等产品，保留了宫廷御膳的风味。随着《舌尖上的中国》的报道，祥禾饽饽铺更是名声大噪，成为网红打卡地。\n\n百度百科: https://baike.baidu.com/item/祥禾饽饽铺\nBilibili: https://search.bilibili.com/all?keyword=祥禾饽饽铺"
   },
   {
     "id": 32,
@@ -276,7 +284,8 @@
     "location": "117.193223,39.143597",
     "address": "古文化街19号",
     "type": "餐饮",
-    "isHeritage": false
+    "isHeritage": false,
+    "description": "虽然是国际快餐品牌，但古文化街的肯德基在建筑风格上入乡随俗，采用了中式仿古装修，与周围环境相协调。这里提供标准的西式快餐，为游客提供了便捷的餐饮选择。在古色古香的街道上吃着汉堡炸鸡，也别有一番风味。\n\n百度百科: https://baike.baidu.com/item/肯德基\nBilibili: https://search.bilibili.com/all?keyword=肯德基"
   },
   {
     "id": 33,
@@ -284,6 +293,7 @@
     "location": "117.192581,39.145684",
     "address": "通北路",
     "type": "服务",
-    "isHeritage": false
+    "isHeritage": false,
+    "description": "为游客提供全方位服务的场所。这里提供旅游咨询、景点讲解、行李寄存、轮椅租借等服务。中心内还设有休息区和饮水机，方便游客休憩。工作人员热情周到，能够解答游客关于古文化街的各种疑问，是游客贴心的“驿站”。\n\n百度百科: https://baike.baidu.com/item/游客服务中心"
   }
 ]
