@@ -451,7 +451,7 @@ export default function App() {
                     window.open(`https://uri.amap.com/navigation?to=${lng},${lat},${encodeURIComponent(selectedSpot.name)}&mode=walk&callnative=1`, '_blank');
                     setShowMapActionSheet(false);
                   }}
-                >网页版导航 (免安装)</button>
+                >网页版导航</button>
               </div>
               <div className="p-4 bg-[#f5f5f5]">
                 <button 

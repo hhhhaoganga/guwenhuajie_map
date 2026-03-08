@@ -234,7 +234,7 @@
     "description": "中国第一家化妆品企业，始创于1830年。谢馥春以“香、粉、油”三绝闻名天下，其产品采用天然原料，经传统工艺制作而成。鸭蛋粉、冰麝油、香包等经典产品，散发着淡雅的幽香，是东方女性传统美容养颜的佳品。\n\n百度百科: https://baike.baidu.com/item/谢馥春\nBilibili: https://search.bilibili.com/all?keyword=谢馥春"
   },
   {
-    "id": 30,
+    "id": 29,
     "name": "泥人张美术馆",
     "location": "117.192060,39.144927",
     "address": "古文化街通庆里4号院",
@@ -243,30 +243,12 @@
     "description": "专门展示泥人张彩塑艺术的场馆。这里收藏了泥人张世家历代传人的精品力作，系统展示了泥人张彩塑的发展历程和艺术成就。馆内环境优雅，艺术氛围浓厚，是欣赏中国传统雕塑艺术、领略泥人张独特魅力的艺术殿堂。\n\n百度百科: https://baike.baidu.com/item/泥人张美术馆\nBilibili: https://search.bilibili.com/all?keyword=泥人张美术馆"
   },
   {
-    "id": 31,
+    "id": 30,
     "name": "祥禾饽饽铺",
     "location": "117.193010,39.143607",
     "address": "古文化街80号",
     "type": "餐饮",
     "isHeritage": true,
     "description": "传承宫廷糕点制作技艺的老字号。祥禾饽饽铺的糕点用料讲究，工艺复杂，口感细腻。其制作的枣泥卷、贵妃饼、萨其马等产品，保留了宫廷御膳的风味。随着《舌尖上的中国》的报道，祥禾饽饽铺更是名声大噪，成为网红打卡地。\n\n百度百科: https://baike.baidu.com/item/祥禾饽饽铺\nBilibili: https://search.bilibili.com/all?keyword=祥禾饽饽铺"
-  },
-  {
-    "id": 32,
-    "name": "肯德基(古文化街店)",
-    "location": "117.193223,39.143597",
-    "address": "古文化街19号",
-    "type": "餐饮",
-    "isHeritage": false,
-    "description": "虽然是国际快餐品牌，但古文化街的肯德基在建筑风格上入乡随俗，采用了中式仿古装修，与周围环境相协调。这里提供标准的西式快餐，为游客提供了便捷的餐饮选择。在古色古香的街道上吃着汉堡炸鸡，也别有一番风味。\n\n百度百科: https://baike.baidu.com/item/肯德基\nBilibili: https://search.bilibili.com/all?keyword=肯德基"
-  },
-  {
-    "id": 33,
-    "name": "天津古文化街游客服务中心",
-    "location": "117.192581,39.145684",
-    "address": "通北路",
-    "type": "服务",
-    "isHeritage": false,
-    "description": "为游客提供全方位服务的场所。这里提供旅游咨询、景点讲解、行李寄存、轮椅租借等服务。中心内还设有休息区和饮水机，方便游客休憩。工作人员热情周到，能够解答游客关于古文化街的各种疑问，是游客贴心的“驿站”。\n\n百度百科: https://baike.baidu.com/item/游客服务中心"
   }
 ]
