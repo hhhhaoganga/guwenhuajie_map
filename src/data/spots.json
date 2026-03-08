@@ -99,20 +99,11 @@
     "description": "创立于1911年，是天津著名的鞋帽老字号。老美华以经营传统布鞋、绣花鞋而闻名，其产品做工精细，穿着舒适，透气性好。近年来，老美华还开发了中式服装、旗袍等产品，深受中老年人和年轻人的喜爱，是传承中华服饰文化的重要品牌。\n\n百度百科: https://baike.baidu.com/item/老美华\nBilibili: https://search.bilibili.com/all?keyword=老美华"
   },
   {
-    "id": 12,
-    "name": "达仁堂健康生活馆",
-    "location": "117.193446,39.143499",
-    "address": "古文化街23号2层",
-    "type": "购物",
-    "isHeritage": true,
-    "description": "乐家老铺天津达仁堂，始建于1914年，是中华老字号企业。达仁堂恪守“炮制虽繁必不敢省人工，品味虽贵必不敢减物力”的祖训，生产的药品疗效显著，享誉海内外。在古文化街的健康生活馆，您可以了解中医药文化，购买到正宗的达仁堂国药。\n\n百度百科: https://baike.baidu.com/item/达仁堂\nBilibili: https://search.bilibili.com/all?keyword=达仁堂"
-  },
-  {
     "id": 13,
     "name": "正兴德茶庄(东马路店)",
     "location": "117.190772,39.144766",
     "address": "东马路15-1号",
-    "type": "购物",
+    "type": "餐饮",
     "isHeritage": true,
     "description": "始建于1738年，是天津著名的清真茶庄。正兴德茶叶以“汤清、色重、味浓”而著称，其花茶制作技艺独特，香气扑鼻，回味甘甜。这里不仅销售各种优质茶叶，还保留了传统的纸包茶叶技艺，是体验天津茶文化的好去处。\n\n百度百科: https://baike.baidu.com/item/正兴德茶庄\nBilibili: https://search.bilibili.com/all?keyword=正兴德茶庄"
   },
@@ -234,15 +225,6 @@
     "description": "始建于1875年，是著名的中华老字号。王星记扇子以选料考究、做工精细、品种繁多而著称。其生产的黑纸扇、檀香扇、挂扇等产品，既有实用价值，又有很高的艺术欣赏价值。一把精美的折扇，不仅是纳凉的工具，更是文人雅士的怀袖雅物。\n\n百度百科: https://baike.baidu.com/item/王星记扇庄\nBilibili: https://search.bilibili.com/all?keyword=王星记扇庄"
   },
   {
-    "id": 27,
-    "name": "张小泉(天津古文化街旗舰店)",
-    "location": "117.192850,39.141979",
-    "address": "古文化街宫南156号",
-    "type": "购物",
-    "isHeritage": true,
-    "description": "始创于1628年，是中华老字号，以生产剪刀等刀具而闻名。张小泉剪刀以“镶钢锻制”技艺著称，锋利耐用，款式精美。在古文化街的专卖店里，您可以买到各种规格的剪刀、刀具，无论是家用还是收藏，都是不错的选择。\n\n百度百科: https://baike.baidu.com/item/张小泉\nBilibili: https://search.bilibili.com/all?keyword=张小泉"
-  },
-  {
     "id": 28,
     "name": "谢馥春",
     "location": "117.192364,39.144160",
@@ -250,15 +232,6 @@
     "type": "购物",
     "isHeritage": true,
     "description": "中国第一家化妆品企业，始创于1830年。谢馥春以“香、粉、油”三绝闻名天下，其产品采用天然原料，经传统工艺制作而成。鸭蛋粉、冰麝油、香包等经典产品，散发着淡雅的幽香，是东方女性传统美容养颜的佳品。\n\n百度百科: https://baike.baidu.com/item/谢馥春\nBilibili: https://search.bilibili.com/all?keyword=谢馥春"
-  },
-  {
-    "id": 29,
-    "name": "严复雕像",
-    "location": "117.191983,39.144789",
-    "address": "通北路与东马路交口附近",
-    "type": "风景名胜",
-    "isHeritage": true,
-    "description": "严复是中国近代著名的启蒙思想家、翻译家、教育家。他翻译的《天演论》等著作，将西方进化论学说引入中国，对中国近代思想界产生了巨大影响。这座雕像矗立在古文化街，是为了纪念这位伟大的先驱，激励后人学习他追求真理、爱国救亡的精神。\n\n百度百科: https://baike.baidu.com/item/严复\nBilibili: https://search.bilibili.com/all?keyword=严复"
   },
   {
     "id": 30,

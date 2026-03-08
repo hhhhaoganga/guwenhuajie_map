@@ -25,7 +25,7 @@ export default function App() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const [spots, setSpots] = useState<Spot[]>(spotsData);
   const [selectedSpot, setSelectedSpot] = useState<Spot | null>(null);
-  const [filterHeritage, setFilterHeritage] = useState(true); // Default to showing heritage only
+  const [filterMode, setFilterMode] = useState<'all' | 'food' | 'culture'>('all'); // 'all', 'food' (heritage food), 'culture' (heritage non-food)
   const [searchQuery, setSearchQuery] = useState('');
   const markersRef = useRef<any[]>([]);
   const [isListOpen, setIsListOpen] = useState(false);
@@ -72,7 +72,16 @@ export default function App() {
     markersRef.current = [];
 
     const filteredSpots = spots.filter(spot => {
-      const matchesFilter = filterHeritage ? spot.isHeritage : true;
+      let matchesFilter = true;
+      if (filterMode === 'food') {
+        matchesFilter = spot.isHeritage && spot.type === '餐饮';
+      } else if (filterMode === 'culture') {
+        matchesFilter = spot.isHeritage && spot.type !== '餐饮';
+      }
+      // 'all' shows everything (or maybe just all heritage? User said "switch these two and all", implying 3 states)
+      // Let's assume 'all' means ALL spots including non-heritage for now, or maybe all heritage?
+      // Given the previous state was "Heritage Only" vs "All", let's keep "All" as truly ALL.
+      
       const matchesSearch = spot.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             spot.address.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesFilter && matchesSearch;
@@ -114,7 +123,7 @@ export default function App() {
       markersRef.current.push(marker);
     });
 
-  }, [spots, filterHeritage, searchQuery]);
+  }, [spots, filterMode, searchQuery]);
 
   // Effect to center map when selectedSpot changes via list
   useEffect(() => {
@@ -130,11 +139,29 @@ export default function App() {
   };
 
   const filteredSpotsList = spots.filter(spot => {
-    const matchesFilter = filterHeritage ? spot.isHeritage : true;
+    let matchesFilter = true;
+    if (filterMode === 'food') {
+      matchesFilter = spot.isHeritage && spot.type === '餐饮';
+    } else if (filterMode === 'culture') {
+      matchesFilter = spot.isHeritage && spot.type !== '餐饮';
+    }
+    
     const matchesSearch = spot.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           spot.address.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesFilter && matchesSearch;
   });
+
+  const toggleFilterMode = () => {
+    if (filterMode === 'all') setFilterMode('food');
+    else if (filterMode === 'food') setFilterMode('culture');
+    else setFilterMode('all');
+  };
+
+  const getFilterLabel = () => {
+    if (filterMode === 'all') return '全部';
+    if (filterMode === 'food') return '美食';
+    return '文创';
+  };
 
   return (
     <div className="flex flex-col h-screen w-full bg-[#fdfbf7] font-serif overflow-hidden relative">
@@ -158,14 +185,14 @@ export default function App() {
         </div>
         
         <button 
-          onClick={() => setFilterHeritage(!filterHeritage)}
+          onClick={toggleFilterMode}
           className={`w-12 h-12 rounded-full shadow-lg border flex items-center justify-center transition-colors ${
-            filterHeritage 
+            filterMode !== 'all'
               ? 'bg-[#8b1a1a] border-[#d4af37] text-[#fdfbf7]' 
               : 'bg-[#fdfbf7] border-[#d4c4b7] text-[#5c4033]'
           }`}
         >
-          <span className="text-xs font-bold writing-vertical-rl">{filterHeritage ? '非遗' : '全部'}</span>
+          <span className="text-xs font-bold writing-vertical-rl">{getFilterLabel()}</span>
         </button>
       </div>
 
@@ -258,8 +285,8 @@ export default function App() {
         ) : (
           /* List View Bottom Sheet (Collapsed/Expanded) */
           <motion.div 
-            initial={{ height: "120px" }}
-            animate={{ height: isListOpen ? "70vh" : "120px" }}
+            initial={{ height: "160px" }}
+            animate={{ height: isListOpen ? "70vh" : "160px" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="absolute bottom-0 left-0 right-0 z-30 bg-[#fdfbf7] rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.1)] border-t border-[#d4c4b7] flex flex-col"
           >
