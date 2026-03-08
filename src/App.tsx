@@ -89,24 +89,38 @@ export default function App() {
       return matchesFilter && matchesSearch;
     });
 
-    filteredSpots.forEach(spot => {
-      const [lng, lat] = spot.location.split(',').map(Number);
-      
-      const markerContent = document.createElement('div');
-      markerContent.className = `custom-marker ${spot.isHeritage ? 'heritage' : 'normal'}`;
-      // Traditional colors: Deep Red (Vermilion) for Heritage, Muted Blue (Indigo) for others
-      const bgColor = spot.isHeritage ? 'bg-[#8b1a1a]' : 'bg-[#4a6b8a]';
-      const borderColor = spot.isHeritage ? 'border-[#d4af37]' : 'border-[#eaddcf]';
-      
-      markerContent.innerHTML = `
-        <div class="w-8 h-8 rounded-full border-2 ${bgColor} ${borderColor} flex items-center justify-center shadow-lg cursor-pointer transform transition-transform active:scale-90 relative">
-          <div class="absolute inset-0 rounded-full border border-white/20"></div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#fdfbf7]"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div class="marker-label absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#fdfbf7]/90 backdrop-blur-sm px-2 py-1 rounded border border-[#d4c4b7] text-xs font-bold shadow-sm whitespace-nowrap ${spot.isHeritage ? 'text-[#8b1a1a]' : 'text-[#5c4033]'} font-serif z-50 pointer-events-none">
-          ${spot.name}
-        </div>
-      `;
+      filteredSpots.forEach(spot => {
+        const [lng, lat] = spot.location.split(',').map(Number);
+        
+        const markerContent = document.createElement('div');
+        markerContent.className = `custom-marker ${spot.isHeritage ? 'heritage' : 'normal'}`;
+        
+        // Use blue for food, red for culture
+        let bgColor = 'bg-[#4a6b8a]'; // Default blue
+        let borderColor = 'border-[#eaddcf]';
+        let textColor = 'text-[#5c4033]';
+
+        if (spot.isHeritage) {
+          if (spot.type === '餐饮') {
+            bgColor = 'bg-[#4a6b8a]'; // Blue for food
+            borderColor = 'border-[#eaddcf]';
+            textColor = 'text-[#4a6b8a]';
+          } else {
+            bgColor = 'bg-[#8b1a1a]'; // Red for culture
+            borderColor = 'border-[#d4af37]';
+            textColor = 'text-[#8b1a1a]';
+          }
+        }
+        
+        markerContent.innerHTML = `
+          <div class="w-8 h-8 rounded-full border-2 ${bgColor} ${borderColor} flex items-center justify-center shadow-lg cursor-pointer transform transition-transform active:scale-90 relative">
+            <div class="absolute inset-0 rounded-full border border-white/20"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#fdfbf7]"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="marker-label absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#fdfbf7]/90 backdrop-blur-sm px-2 py-1 rounded border border-[#d4c4b7] text-xs font-bold shadow-sm whitespace-nowrap ${textColor} font-serif z-50 pointer-events-none">
+            ${spot.name}
+          </div>
+        `;
 
       const marker = new window.AMap.Marker({
         position: [lng, lat],
@@ -190,9 +204,11 @@ export default function App() {
         <button 
           onClick={toggleFilterMode}
           className={`w-12 h-12 rounded-full shadow-lg border flex items-center justify-center transition-colors ${
-            filterMode !== 'all'
-              ? 'bg-[#8b1a1a] border-[#d4af37] text-[#fdfbf7]' 
-              : 'bg-[#fdfbf7] border-[#d4c4b7] text-[#5c4033]'
+            filterMode === 'food'
+              ? 'bg-[#4a6b8a] border-[#eaddcf] text-[#fdfbf7]' 
+              : filterMode === 'culture'
+                ? 'bg-[#8b1a1a] border-[#d4af37] text-[#fdfbf7]'
+                : 'bg-[#fdfbf7] border-[#d4c4b7] text-[#5c4033]'
           }`}
         >
           <span className="text-xs font-bold writing-vertical-rl">{getFilterLabel()}</span>
@@ -372,11 +388,19 @@ export default function App() {
                     className="p-4 bg-white rounded-xl border border-[#eaddcf] shadow-sm flex justify-between items-center active:bg-[#fffdf5]"
                   >
                     <div>
-                      <h4 className={`font-bold ${spot.isHeritage ? 'text-[#8b1a1a]' : 'text-[#5c4033]'}`}>{spot.name}</h4>
+                      <h4 className={`font-bold ${
+                        spot.isHeritage 
+                          ? (spot.type === '餐饮' ? 'text-[#4a6b8a]' : 'text-[#8b1a1a]') 
+                          : 'text-[#5c4033]'
+                      }`}>{spot.name}</h4>
                       <p className="text-xs text-[#8b5a2b] mt-1 truncate max-w-[200px]">{spot.address}</p>
                     </div>
                     {spot.isHeritage && (
-                      <span className="text-[10px] bg-[#8b1a1a]/10 text-[#8b1a1a] px-2 py-1 rounded-full border border-[#8b1a1a]/20">
+                      <span className={`text-[10px] px-2 py-1 rounded-full border ${
+                        spot.type === '餐饮' 
+                          ? 'bg-[#4a6b8a]/10 text-[#4a6b8a] border-[#4a6b8a]/20' 
+                          : 'bg-[#8b1a1a]/10 text-[#8b1a1a] border-[#8b1a1a]/20'
+                      }`}>
                         非遗
                       </span>
                     )}

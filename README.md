@@ -1,20 +1,52 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 天津古文化街非遗地图 (Tianjin Ancient Culture Street Heritage Map)
 
-# Run and deploy your AI Studio app
+这是一个专为移动端设计的交互式地图应用，旨在带领游客探索天津古文化街的深厚底蕴，特别是其中的非物质文化遗产（非遗）项目。应用采用了“古色古香”的视觉风格，结合现代化的交互体验，为用户提供便捷的导览服务。
 
-This contains everything you need to run your app locally.
+## 🛠 技术栈 (Tech Stack)
 
-View your app in AI Studio: https://ai.studio/apps/27637861-2b45-43a1-9ea9-286307f0dda9
+*   **前端框架**: React 18 (TypeScript)
+*   **构建工具**: Vite
+*   **地图引擎**: 高德地图 JS API (AMap)
+*   **样式处理**: Tailwind CSS
+*   **动画与手势**: Framer Motion (motion/react)
+*   **图标库**: Lucide React
 
-## Run Locally
+## ✨ 核心功能 (Features)
 
-**Prerequisites:**  Node.js
+### 1. 交互式手绘风地图
+*   **精准定位**: 地图自动锁定在天津古文化街核心区域，并限制了滑动范围，防止迷失方向。
+*   **特色标记**: 采用传统中国红（非遗项目）和静谧蓝（普通景点）区分不同类型的地点，标记点带有传统云纹装饰。
+*   **实时交互**: 点击地图标记可快速查看地点简讯，并支持拖拽展开详细介绍。
 
+### 2. 智能分类与搜索
+*   **三态过滤**: 右上角设有“全部”、“非遗美食”、“非遗文化”三个过滤选项，帮助用户快速筛选感兴趣的内容。
+*   **实时搜索**: 支持通过名称或地址关键词实时检索街区内的所有店铺和景点。
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 3. 现代化移动端交互 (Bottom Sheets)
+*   **手势操作**: 列表页和详情页均支持物理拖拽手势。向上滑动展开，向下滑动折叠或关闭。
+*   **智能展开**: 
+    *   从列表点击进入详情时，自动全屏展开，方便阅读。
+    *   从地图点击标记进入详情时，以半屏卡片形式出现，保持地图视野。
+*   **响应式布局**: 针对手机屏幕深度优化，确保所有交互触手可及。
+
+### 4. 深度内容集成
+*   **多媒体链接**: 详情页自动识别并提取描述中的“百度百科”和“Bilibili”链接，并以精美的按钮形式呈现，方便用户深入了解历史背景或观看相关视频。
+*   **文本折叠**: 详情页在半屏状态下自动折叠长文本，保持界面整洁。
+
+### 5. 原生导航集成
+*   **多平台支持**: 点击“导航前往”会弹出应用选择菜单，支持唤起手机自带的：
+    *   高德地图 (Native App)
+    *   百度地图 (Native App)
+    *   腾讯地图 (Native App)
+    *   苹果地图 (iOS Native App)
+*   **网页版回退**: 同时也提供免安装的网页版导航，确保在任何设备上都能正常使用。
+
+## 🎨 视觉风格 (Aesthetic)
+应用采用了传统中国色调：
+*   **宫廷红 (#8b1a1a)**: 用于强调非遗身份。
+*   **宣纸白 (#fdfbf7)**: 作为背景色，营造古朴质感。
+*   **木质棕 (#5c4033)**: 用于文字和边框，增加沉稳感。
+*   **衬线字体**: 提升了整体的文化气息。
+
+---
+*由 AI 辅助开发，致力于传承与传播中国传统文化。*
