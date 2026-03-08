@@ -29,6 +29,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const markersRef = useRef<any[]>([]);
   const [isListOpen, setIsListOpen] = useState(false);
+  const [isDetailExpanded, setIsDetailExpanded] = useState(false);
 
   // Initialize Map
   useEffect(() => {
@@ -116,7 +117,7 @@ export default function App() {
       });
 
       marker.on('click', () => {
-        handleSpotClick(spot);
+        handleSpotClick(spot, false);
       });
 
       marker.setMap(mapRef.current);
@@ -133,9 +134,10 @@ export default function App() {
     }
   }, [selectedSpot]);
 
-  const handleSpotClick = (spot: Spot) => {
+  const handleSpotClick = (spot: Spot, fromList: boolean = false) => {
     setSelectedSpot(spot);
     setIsListOpen(false); // Close list if open
+    setIsDetailExpanded(fromList); // Expand detail if clicked from list, otherwise collapsed
   };
 
   const filteredSpotsList = spots.filter(spot => {
@@ -204,96 +206,123 @@ export default function App() {
       {/* Bottom Sheet / Card Area */}
       <AnimatePresence>
         {selectedSpot ? (
-          /* Selected Spot Detail Card */
+            /* Selected Spot Detail Card */
           <motion.div 
             initial={{ y: "100%" }}
-            animate={{ y: 0 }}
+            animate={{ y: 0, height: isDetailExpanded ? "75vh" : "auto" }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="absolute bottom-0 left-0 right-0 z-30 bg-[#fdfbf7] rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.1)] border-t border-[#d4c4b7] p-6 pb-8"
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, info) => {
+              if (isDetailExpanded && info.offset.y > 50) {
+                setIsDetailExpanded(false);
+              } else if (!isDetailExpanded && info.offset.y < -50) {
+                setIsDetailExpanded(true);
+              } else if (!isDetailExpanded && info.offset.y > 50) {
+                setSelectedSpot(null);
+              }
+            }}
+            className="absolute bottom-0 left-0 right-0 z-30 bg-[#fdfbf7] rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.1)] border-t border-[#d4c4b7] flex flex-col"
           >
-            <div className="w-12 h-1 bg-[#d4c4b7] rounded-full mx-auto mb-4 opacity-50" />
+            {/* Drag Handle Area */}
+            <div 
+              className="w-full p-4 flex justify-center cursor-pointer flex-shrink-0"
+              onClick={() => setIsDetailExpanded(!isDetailExpanded)}
+            >
+              <div className="w-12 h-1.5 bg-[#d4c4b7] rounded-full opacity-50" />
+            </div>
             
-            <div className="flex justify-between items-start mb-2">
-              <h2 className="text-2xl font-bold text-[#8b1a1a]">{selectedSpot.name}</h2>
+            <div className="px-6 pb-8 overflow-y-auto custom-scrollbar flex-1">
+              <div className="flex justify-between items-start mb-2">
+                <h2 className="text-2xl font-bold text-[#8b1a1a]">{selectedSpot.name}</h2>
+                <button 
+                  onClick={() => setSelectedSpot(null)}
+                  className="p-1 bg-[#fdfbf7] rounded-full border border-[#d4c4b7] text-[#8b5a2b]"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2 mb-4">
+                {selectedSpot.isHeritage && (
+                  <span className="text-xs bg-[#8b1a1a] text-[#fdfbf7] px-2 py-0.5 rounded-full border border-[#d4af37]">
+                    非物质文化遗产
+                  </span>
+                )}
+                <span className="text-xs text-[#5c4033] bg-[#eaddcf]/30 px-2 py-0.5 rounded-full border border-[#eaddcf]">
+                  {selectedSpot.type.split(';')[0]}
+                </span>
+              </div>
+
+              <p className="text-sm text-[#5c4033] mb-4 flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-[#8b5a2b] mt-0.5 flex-shrink-0" />
+                {selectedSpot.address}
+              </p>
+
+              <div className="bg-[#fffdf5] p-4 rounded-xl border border-[#eaddcf] text-sm text-[#5c4033] leading-relaxed relative overflow-hidden">
+                 <div className="absolute top-0 left-0 w-1 h-full bg-[#8b1a1a]/20"></div>
+                 <div className={`whitespace-pre-wrap ${!isDetailExpanded ? 'line-clamp-3' : ''}`}>
+                   {selectedSpot.description ? (
+                     (() => {
+                       const baiduMatch = selectedSpot.description.match(/百度百科: (https?:\/\/[^\s]+)/);
+                       const biliMatch = selectedSpot.description.match(/Bilibili: (https?:\/\/[^\s]+)/);
+                       
+                       let displayText = selectedSpot.description
+                          .replace(/百度百科: https?:\/\/[^\s]+/g, '')
+                          .replace(/Bilibili: https?:\/\/[^\s]+/g, '')
+                          .trim();
+
+                       return (
+                         <>
+                           {displayText}
+                           
+                           {isDetailExpanded && (
+                             <div className="mt-4 flex flex-wrap gap-2">
+                               {baiduMatch && baiduMatch[1] && (
+                                 <a 
+                                   href={baiduMatch[1]} 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#f0f0f0] text-[#333] rounded-full text-xs font-bold hover:bg-[#e0e0e0] transition-colors border border-[#ccc]"
+                                 >
+                                   <span className="w-4 h-4 flex items-center justify-center bg-[#2932e1] text-white rounded text-[10px]">百</span>
+                                   百度百科
+                                 </a>
+                               )}
+                               
+                               {biliMatch && biliMatch[1] && (
+                                 <a 
+                                   href={biliMatch[1]} 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#f6f6f6] text-[#fb7299] rounded-full text-xs font-bold hover:bg-[#f0f0f0] transition-colors border border-[#fb7299]/30"
+                                 >
+                                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a.9.9 0 0 1-.272-.645c0-.247.09-.46.27-.639a.878.878 0 0 1 .64-.266c.246 0 .46.09.64.266l1.96 1.871h7.627l1.96-1.871c.18-.178.393-.266.64-.266.246 0 .46.09.64.266a.878.878 0 0 1 .27.64c0 .248-.09.463-.27.645l-1.174 1.12Zm-2.653 10.662c0-.578-.208-1.07-.626-1.479a2.006 2.006 0 0 0-1.48-.614 2.006 2.006 0 0 0-1.48.614 2.033 2.033 0 0 0-.626 1.48c0 .578.208 1.07.626 1.479a2.006 2.006 0 0 0 1.48.614c.578 0 1.07-.205 1.48-.614a2.033 2.033 0 0 0 .626-1.48Zm-6.4 0c0-.578-.208-1.07-.626-1.479a2.006 2.006 0 0 0-1.48-.614 2.006 2.006 0 0 0-1.48.614 2.033 2.033 0 0 0-.626 1.48c0 .578.208 1.07.626 1.479a2.006 2.006 0 0 0 1.48.614c.578 0 1.07-.205 1.48-.614a2.033 2.033 0 0 0 .626-1.48Z"/></svg>
+                                   相关视频
+                                 </a>
+                               )}
+                             </div>
+                           )}
+                         </>
+                       );
+                     })()
+                   ) : '暂无详细介绍...'}
+                 </div>
+              </div>
+
               <button 
-                onClick={() => setSelectedSpot(null)}
-                className="p-1 bg-[#fdfbf7] rounded-full border border-[#d4c4b7] text-[#8b5a2b]"
+                onClick={() => {
+                  const [lng, lat] = selectedSpot.location.split(',');
+                  window.open(`https://uri.amap.com/marker?position=${lng},${lat}&name=${encodeURIComponent(selectedSpot.name)}`, '_blank');
+                }}
+                className="w-full mt-4 bg-[#8b1a1a] text-[#fdfbf7] py-3 rounded-xl font-bold shadow-md flex items-center justify-center gap-2 active:scale-95 transition-transform"
               >
-                <X className="w-5 h-5" />
+                <Navigation className="w-4 h-4" />
+                导航前往
               </button>
             </div>
-
-            <div className="flex items-center gap-2 mb-4">
-              {selectedSpot.isHeritage && (
-                <span className="text-xs bg-[#8b1a1a] text-[#fdfbf7] px-2 py-0.5 rounded-full border border-[#d4af37]">
-                  非物质文化遗产
-                </span>
-              )}
-              <span className="text-xs text-[#5c4033] bg-[#eaddcf]/30 px-2 py-0.5 rounded-full border border-[#eaddcf]">
-                {selectedSpot.type.split(';')[0]}
-              </span>
-            </div>
-
-            <p className="text-sm text-[#5c4033] mb-4 flex items-start gap-2">
-              <MapPin className="w-4 h-4 text-[#8b5a2b] mt-0.5 flex-shrink-0" />
-              {selectedSpot.address}
-            </p>
-
-            <div className="bg-[#fffdf5] p-4 rounded-xl border border-[#eaddcf] text-sm text-[#5c4033] leading-relaxed relative overflow-hidden">
-               <div className="absolute top-0 left-0 w-1 h-full bg-[#8b1a1a]/20"></div>
-               <div className="whitespace-pre-wrap">
-                 {selectedSpot.description ? (
-                   (() => {
-                     const baiduMatch = selectedSpot.description.match(/百度百科: (https?:\/\/[^\s]+)/);
-                     const biliMatch = selectedSpot.description.match(/Bilibili: (https?:\/\/[^\s]+)/);
-                     
-                     return (
-                       <>
-                         {selectedSpot.description.split('\n\n')[0]}
-                         
-                         <div className="mt-4 flex flex-wrap gap-2">
-                           {baiduMatch && baiduMatch[1] && (
-                             <a 
-                               href={baiduMatch[1]} 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#f0f0f0] text-[#333] rounded-full text-xs font-bold hover:bg-[#e0e0e0] transition-colors border border-[#ccc]"
-                             >
-                               <span className="w-4 h-4 flex items-center justify-center bg-[#2932e1] text-white rounded text-[10px]">百</span>
-                               百度百科
-                             </a>
-                           )}
-                           
-                           {biliMatch && biliMatch[1] && (
-                             <a 
-                               href={biliMatch[1]} 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#f6f6f6] text-[#fb7299] rounded-full text-xs font-bold hover:bg-[#f0f0f0] transition-colors border border-[#fb7299]/30"
-                             >
-                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a.9.9 0 0 1-.272-.645c0-.247.09-.46.27-.639a.878.878 0 0 1 .64-.266c.246 0 .46.09.64.266l1.96 1.871h7.627l1.96-1.871c.18-.178.393-.266.64-.266.246 0 .46.09.64.266a.878.878 0 0 1 .27.64c0 .248-.09.463-.27.645l-1.174 1.12Zm-2.653 10.662c0-.578-.208-1.07-.626-1.479a2.006 2.006 0 0 0-1.48-.614 2.006 2.006 0 0 0-1.48.614 2.033 2.033 0 0 0-.626 1.48c0 .578.208 1.07.626 1.479a2.006 2.006 0 0 0 1.48.614c.578 0 1.07-.205 1.48-.614a2.033 2.033 0 0 0 .626-1.48Zm-6.4 0c0-.578-.208-1.07-.626-1.479a2.006 2.006 0 0 0-1.48-.614 2.006 2.006 0 0 0-1.48.614 2.033 2.033 0 0 0-.626 1.48c0 .578.208 1.07.626 1.479a2.006 2.006 0 0 0 1.48.614c.578 0 1.07-.205 1.48-.614a2.033 2.033 0 0 0 .626-1.48Z"/></svg>
-                               相关视频
-                             </a>
-                           )}
-                         </div>
-                       </>
-                     );
-                   })()
-                 ) : '暂无详细介绍...'}
-               </div>
-            </div>
-
-            <button 
-              onClick={() => {
-                const [lng, lat] = selectedSpot.location.split(',');
-                window.open(`https://uri.amap.com/marker?position=${lng},${lat}&name=${encodeURIComponent(selectedSpot.name)}`, '_blank');
-              }}
-              className="w-full mt-4 bg-[#8b1a1a] text-[#fdfbf7] py-3 rounded-xl font-bold shadow-md flex items-center justify-center gap-2 active:scale-95 transition-transform"
-            >
-              <Navigation className="w-4 h-4" />
-              导航前往
-            </button>
           </motion.div>
         ) : (
           /* List View Bottom Sheet (Collapsed/Expanded) */
@@ -301,14 +330,24 @@ export default function App() {
             initial={{ height: "160px" }}
             animate={{ height: isListOpen ? "70vh" : "160px" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, info) => {
+              if (isListOpen && info.offset.y > 50) {
+                setIsListOpen(false);
+              } else if (!isListOpen && info.offset.y < -50) {
+                setIsListOpen(true);
+              }
+            }}
             className="absolute bottom-0 left-0 right-0 z-30 bg-[#fdfbf7] rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.1)] border-t border-[#d4c4b7] flex flex-col"
           >
             {/* Drag Handle Area */}
             <div 
-              className="w-full p-3 flex justify-center cursor-pointer"
+              className="w-full p-4 flex justify-center cursor-pointer flex-shrink-0"
               onClick={() => setIsListOpen(!isListOpen)}
             >
-              <div className="w-12 h-1 bg-[#d4c4b7] rounded-full opacity-50" />
+              <div className="w-12 h-1.5 bg-[#d4c4b7] rounded-full opacity-50" />
             </div>
 
             {/* Header */}
@@ -326,12 +365,12 @@ export default function App() {
             </div>
 
             {/* Scrollable List */}
-            <div className="flex-1 overflow-y-auto px-4 pb-6 custom-scrollbar">
+            <div className="flex-1 overflow-y-auto px-4 pb-6 custom-scrollbar" onPointerDown={(e) => e.stopPropagation()}>
               <div className="space-y-3 mt-2">
                 {filteredSpotsList.map(spot => (
                   <div 
                     key={spot.id}
-                    onClick={() => handleSpotClick(spot)}
+                    onClick={() => handleSpotClick(spot, true)}
                     className="p-4 bg-white rounded-xl border border-[#eaddcf] shadow-sm flex justify-between items-center active:bg-[#fffdf5]"
                   >
                     <div>
