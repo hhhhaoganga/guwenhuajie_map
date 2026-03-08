@@ -30,6 +30,7 @@ export default function App() {
   const markersRef = useRef<any[]>([]);
   const [isListOpen, setIsListOpen] = useState(false);
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
+  const [showMapActionSheet, setShowMapActionSheet] = useState(false);
 
   // Initialize Map
   useEffect(() => {
@@ -313,10 +314,7 @@ export default function App() {
               </div>
 
               <button 
-                onClick={() => {
-                  const [lng, lat] = selectedSpot.location.split(',');
-                  window.open(`https://uri.amap.com/marker?position=${lng},${lat}&name=${encodeURIComponent(selectedSpot.name)}`, '_blank');
-                }}
+                onClick={() => setShowMapActionSheet(true)}
                 className="w-full mt-4 bg-[#8b1a1a] text-[#fdfbf7] py-3 rounded-xl font-bold shadow-md flex items-center justify-center gap-2 active:scale-95 transition-transform"
               >
                 <Navigation className="w-4 h-4" />
@@ -387,6 +385,82 @@ export default function App() {
               </div>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Map Action Sheet */}
+      <AnimatePresence>
+        {showMapActionSheet && selectedSpot && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/40 z-40"
+              onClick={() => setShowMapActionSheet(false)}
+            />
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="absolute bottom-0 left-0 right-0 z-50 bg-[#fdfbf7] rounded-t-2xl pb-6"
+            >
+              <div className="p-4 text-center border-b border-[#eaddcf]">
+                <h3 className="text-[#5c4033] font-bold">选择导航应用</h3>
+              </div>
+              <div className="flex flex-col">
+                <button 
+                  className="py-4 text-[#333] border-b border-[#eaddcf] active:bg-[#f0f0f0]"
+                  onClick={() => {
+                    const [lng, lat] = selectedSpot.location.split(',');
+                    window.location.href = `amapuri://route/plan/?dlat=${lat}&dlon=${lng}&dname=${encodeURIComponent(selectedSpot.name)}&dev=0&t=0`;
+                    setShowMapActionSheet(false);
+                  }}
+                >高德地图</button>
+                <button 
+                  className="py-4 text-[#333] border-b border-[#eaddcf] active:bg-[#f0f0f0]"
+                  onClick={() => {
+                    const [lng, lat] = selectedSpot.location.split(',');
+                    window.location.href = `baidumap://map/direction?destination=latlng:${lat},${lng}|name:${encodeURIComponent(selectedSpot.name)}&mode=driving&coord_type=gcj02`;
+                    setShowMapActionSheet(false);
+                  }}
+                >百度地图</button>
+                <button 
+                  className="py-4 text-[#333] border-b border-[#eaddcf] active:bg-[#f0f0f0]"
+                  onClick={() => {
+                    const [lng, lat] = selectedSpot.location.split(',');
+                    window.location.href = `qqmap://map/routeplan?type=walk&tocoord=${lat},${lng}&to=${encodeURIComponent(selectedSpot.name)}&referer=tianjin_map`;
+                    setShowMapActionSheet(false);
+                  }}
+                >腾讯地图</button>
+                {/iPhone|iPad|iPod/i.test(navigator.userAgent) && (
+                  <button 
+                    className="py-4 text-[#333] border-b border-[#eaddcf] active:bg-[#f0f0f0]"
+                    onClick={() => {
+                      const [lng, lat] = selectedSpot.location.split(',');
+                      window.location.href = `http://maps.apple.com/?daddr=${lat},${lng}&dirflg=w`;
+                      setShowMapActionSheet(false);
+                    }}
+                  >苹果地图</button>
+                )}
+                <button 
+                  className="py-4 text-[#8b1a1a] border-b border-[#eaddcf] active:bg-[#f0f0f0]"
+                  onClick={() => {
+                    const [lng, lat] = selectedSpot.location.split(',');
+                    window.open(`https://uri.amap.com/navigation?to=${lng},${lat},${encodeURIComponent(selectedSpot.name)}&mode=walk&callnative=1`, '_blank');
+                    setShowMapActionSheet(false);
+                  }}
+                >网页版导航 (免安装)</button>
+              </div>
+              <div className="p-4 bg-[#f5f5f5]">
+                <button 
+                  className="w-full py-3 bg-white rounded-xl text-[#5c4033] font-bold shadow-sm"
+                  onClick={() => setShowMapActionSheet(false)}
+                >取消</button>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 
