@@ -28,6 +28,7 @@ export default function App() {
   const [filterMode, setFilterMode] = useState<'all' | 'food' | 'culture'>('all'); // 'all', 'food' (heritage food), 'culture' (heritage non-food)
   const [searchQuery, setSearchQuery] = useState('');
   const markersRef = useRef<any[]>([]);
+  const markerClickedRef = useRef(false);
   const [isListOpen, setIsListOpen] = useState(false);
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
   const [showMapActionSheet, setShowMapActionSheet] = useState(false);
@@ -57,6 +58,11 @@ export default function App() {
 
     // Handle map click to deselect
     map.on('click', () => {
+      if (markerClickedRef.current) return;
+      setSelectedSpot(null);
+    });
+    map.on('touchstart', () => {
+      if (markerClickedRef.current) return;
       setSelectedSpot(null);
     });
 
@@ -132,7 +138,14 @@ export default function App() {
       });
 
       marker.on('click', () => {
+        markerClickedRef.current = true;
         handleSpotClick(spot, false);
+        setTimeout(() => { markerClickedRef.current = false; }, 300);
+      });
+      marker.on('touchstart', () => {
+        markerClickedRef.current = true;
+        handleSpotClick(spot, false);
+        setTimeout(() => { markerClickedRef.current = false; }, 300);
       });
 
       marker.setMap(mapRef.current);
