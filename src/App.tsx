@@ -238,7 +238,7 @@ export default function App() {
                 <span className="text-[#d4af37] text-3xl font-bold">津</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-[#8b1a1a] mb-6 tracking-[0.3em] ml-4" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', height: '240px' }}>
+              <h1 className="text-4xl md:text-5xl font-bold text-[#8b1a1a] mb-6 tracking-[0.3em] ml-4 whitespace-nowrap" style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
                 津门故里
               </h1>
               <p className="text-[#5c4033] text-lg tracking-[0.2em] mb-12 font-medium ml-2">天津古文化街非遗地图</p>
@@ -413,8 +413,8 @@ export default function App() {
         ) : (
           /* List View Bottom Sheet (Collapsed/Expanded) */
           <motion.div 
-            initial={{ height: "160px" }}
-            animate={{ height: isListOpen ? "70vh" : "160px" }}
+            initial={{ height: "20vh" }}
+            animate={{ height: isListOpen ? "70vh" : "20vh" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
