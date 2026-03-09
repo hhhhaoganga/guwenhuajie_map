@@ -32,6 +32,19 @@ export default function App() {
   const [isListOpen, setIsListOpen] = useState(false);
   const [isDetailExpanded, setIsDetailExpanded] = useState(false);
   const [showMapActionSheet, setShowMapActionSheet] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
+
+  const handleEnterMap = () => {
+    setShowSplash(false);
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen().catch(err => console.log(err));
+    } else if ((elem as any).webkitRequestFullscreen) {
+      (elem as any).webkitRequestFullscreen();
+    } else if ((elem as any).msRequestFullscreen) {
+      (elem as any).msRequestFullscreen();
+    }
+  };
 
   // Initialize Map
   useEffect(() => {
@@ -196,6 +209,52 @@ export default function App() {
   return (
     <div className="flex flex-col h-screen w-full bg-[#fdfbf7] font-serif overflow-hidden relative">
       
+      {/* Splash Screen */}
+      <AnimatePresence>
+        {showSplash && (
+          <motion.div 
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0 z-[100] bg-[#fdfbf7] flex flex-col items-center justify-center font-serif overflow-hidden"
+          >
+            {/* Decorative borders */}
+            <div className="absolute inset-4 border-2 border-[#8b1a1a] opacity-20 pointer-events-none"></div>
+            <div className="absolute inset-6 border border-[#8b1a1a] opacity-20 pointer-events-none"></div>
+            
+            {/* Corner decorations */}
+            <div className="absolute top-8 left-8 w-8 h-8 border-t-2 border-l-2 border-[#8b1a1a] opacity-50"></div>
+            <div className="absolute top-8 right-8 w-8 h-8 border-t-2 border-r-2 border-[#8b1a1a] opacity-50"></div>
+            <div className="absolute bottom-8 left-8 w-8 h-8 border-b-2 border-l-2 border-[#8b1a1a] opacity-50"></div>
+            <div className="absolute bottom-8 right-8 w-8 h-8 border-b-2 border-r-2 border-[#8b1a1a] opacity-50"></div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="flex flex-col items-center z-10"
+            >
+              <div className="w-16 h-16 rounded-full bg-[#8b1a1a] flex items-center justify-center mb-8 shadow-lg border-2 border-[#d4af37]">
+                <span className="text-[#d4af37] text-3xl font-bold">津</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl font-bold text-[#8b1a1a] mb-6 tracking-[0.3em] ml-4" style={{ writingMode: 'vertical-rl', textOrientation: 'upright', height: '240px' }}>
+                津门故里
+              </h1>
+              <p className="text-[#5c4033] text-lg tracking-[0.2em] mb-12 font-medium ml-2">天津古文化街非遗地图</p>
+              
+              <button 
+                onClick={handleEnterMap}
+                className="px-8 py-3 bg-[#8b1a1a] text-[#fdfbf7] rounded-full font-bold tracking-widest shadow-lg border border-[#d4af37] hover:bg-[#701515] transition-colors active:scale-95 flex items-center gap-2"
+              >
+                进入地图
+                <MapPin className="w-4 h-4" />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Top Floating Bar (Search & Filter) */}
       <div className="absolute top-4 left-4 right-4 z-20 flex gap-2">
         <div className="flex-1 bg-[#fdfbf7]/95 backdrop-blur-md shadow-lg rounded-full border border-[#d4c4b7] flex items-center px-4 py-2">
